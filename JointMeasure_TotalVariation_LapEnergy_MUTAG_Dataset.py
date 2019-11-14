@@ -136,15 +136,16 @@ def SimilarityMatrix_Test(All_Graphs_Train_GE,All_Graphs_Test_GE,All_Graphs_Trai
 
 #%%  Data loading and preparation 
 
-# Load from .mat files Adjacency matrices of all graphs, thier signals and their classes. You need to specify the correct paths to acces the files. 
+# Load from .mat files Adjacency matrices of all graphs, thier signals and their classes. You need to specify the correct 
+# paths to acces the files. 
     
-AdjacencyMatrices_Dic= scipy.io.loadmat('/home/hadjahmed/Anaconda Files 2019/New Kernel Molecular Graphs (Avril 2017)/Programs/mutag/All_W_Adjacency_MUTAG.mat')
+AdjacencyMatrices_Dic= scipy.io.loadmat('insert path to this file containing all adjacency matrices-----> All_W_Adjacency_MUTAG.mat')
 AdjacencyMatrices_Dataset=AdjacencyMatrices_Dic['All_W_Adjacency_MUTAG']
 
-NodeValues_Dic= scipy.io.loadmat('/home/hadjahmed/Anaconda Files 2019/New Kernel Molecular Graphs (Avril 2017)/Programs/mutag/All_NodeValues_MUTAG.mat')
+NodeValues_Dic= scipy.io.loadmat('insert path to this file containing node values for each graph-----> All_NodeValues_MUTAG.mat')
 NodeValues_Dataset=NodeValues_Dic['All_NodeValues_MUTAG']
 
-Classes_Dic= scipy.io.loadmat('/home/hadjahmed/Anaconda Files 2019/New Kernel Molecular Graphs (Avril 2017)/Programs/mutag/All_Classes_MUTAG.mat')
+Classes_Dic= scipy.io.loadmat('insert path to this file containing the class of each graph -----> All_Classes_MUTAG.mat')
 Classes_Dataset=Classes_Dic['lmutag_mod']
 
 Graph_Energy=All_LapEnergy(AdjacencyMatrices_Dataset,NodeValues_Dataset) # Compute Laplacian energies of all graphs in dataset 
@@ -189,7 +190,7 @@ Accuracy_3=np.asarray(Accuracy_2)
 print("Average Accuracy=") 
 print(Accuracy_3.mean()*100,"%")
 print("Standard Deviation") 
-print(Accuracy_3.std()*100,"%") 
+print(Accuracy_3.std()*100,"%") # By the end you get the classification accuracy for each epoch and the final average accuracy 
 
 
 
